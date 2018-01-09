@@ -1,0 +1,64 @@
+int my_isspace(int ch)
+{
+    char i;
+    i = (char) ch;
+    
+    if((i == ' ') || (i == '\f') || (i == '\n') || (i == '\r') || (i == '\t') || (i == '\v'))
+        {
+            ch = 1;
+        }
+        
+        else
+        
+        {
+            ch= 0;
+    
+        }    
+    
+    return ch;
+}
+
+int my_atoi(const char * str)
+{
+    int j;
+    int a;
+    a = 0;
+    int ret;
+    ret = 0;
+    j = 0;
+    while((str[j] != '\0') &&  (my_isspace(str[j])== 1))
+    {
+        j++;
+    }
+    if(str[j] == '-')
+        {   
+            if ((str[j + 1] <= '0') && ((str[j + 1]) >= '9'))
+            {
+                return 0;
+            }
+            a = 1;
+            j++;
+        }
+    if(str[j] == '+')
+    {
+        if ((str[j + 1] <= '0') && (str[j + 1] >= '9'))
+            {
+                return 0;
+            }
+        j++;
+    }
+    
+    while ((str[j] >= '0') && (str[j] <= '9'))  
+        {
+            ret  *= 10;
+            ret += (str[j] - '0');
+            j++;
+        }
+    if (a == 1)
+    {
+        return (-ret);
+    }
+    
+    return(ret);
+    
+}

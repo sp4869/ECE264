@@ -1,0 +1,50 @@
+Breakpoint 1 at 0x40077a: file pa03.c, line 20.
+Starting program: /home/shay/a/prabhus/ECE264/PA03/pa03 
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffe668) at pa03.c:21
+21	  char * c = "d,c,b,e,a"; 
+Missing separate debuginfos, use: debuginfo-install glibc-2.12-1.192.el6.x86_64
+22	  char * d = ",";
+Ambiguous command "m": macro, maintenance, make, mem, monitor, mt.
+23	  const char * s2 = "Zippy";
+27	  char ** test = explode(c,d,&g);
+28	  printf("new_g = %d\n",g);
+$1 = 5
+31	  char * str_2 = strdup("Rochak");
+32	   sortStringCharacters(str_2);
+33	  printf("Answer = %s\n",str_2);
+$2 = 0x6020e0 "Rachko"
+40	  sortStringArray(test,g);
+41	 for (i = 0;i < g;i++)
+43	    printf("answer = %s\n",test[i]);
+$3 = 0x6020c0 "a"
+41	 for (i = 0;i < g;i++)
+43	    printf("answer = %s\n",test[i]);
+$4 = 0x602080 "b"
+41	 for (i = 0;i < g;i++)
+43	    printf("answer = %s\n",test[i]);
+41	 for (i = 0;i < g;i++)
+43	    printf("answer = %s\n",test[i]);
+41	 for (i = 0;i < g;i++)
+43	    printf("answer = %s\n",test[i]);
+41	 for (i = 0;i < g;i++)
+47	  for(i = 0;i < g;i++)
+49	      free(test[i]);
+47	  for(i = 0;i < g;i++)
+49	      free(test[i]);
+47	  for(i = 0;i < g;i++)
+49	      free(test[i]);
+47	  for(i = 0;i < g;i++)
+49	      free(test[i]);
+47	  for(i = 0;i < g;i++)
+49	      free(test[i]);
+47	  for(i = 0;i < g;i++)
+51	  free(test);
+53	  free(str_2);
+55	  return EXIT_SUCCESS;
+56	}
+A debugging session is active.
+
+	Inferior 1 [process 1553] will be killed.
+
+Quit anyway? (y or n) 

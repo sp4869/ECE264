@@ -1,0 +1,72 @@
+==4614== Memcheck, a memory error detector
+==4614== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==4614== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==4614== Command: /tmp/.aNBZal/a.out 3 1234567-9AB8DEFC
+==4614== Parent PID: 4613
+==4614== 
+--4614-- 
+--4614-- Valgrind options:
+--4614--    --tool=memcheck
+--4614--    --leak-check=full
+--4614--    --verbose
+--4614--    --log-file=/tmp/.aNBZal/tmpf
+--4614-- Contents of /proc/version:
+--4614--   Linux version 2.6.32-642.3.1.el6.x86_64 (mockbuild@x86-029.build.eng.bos.redhat.com) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-17) (GCC) ) #1 SMP Sun Jun 26 18:16:44 EDT 2016
+--4614-- Arch and hwcaps: AMD64, amd64-sse3-cx16-lzcnt-avx2-bmi
+--4614-- Page sizes: currently 4096, max supported 4096
+--4614-- Valgrind library directory: /usr/lib64/valgrind
+--4614-- Reading syms from /tmp/.aNBZal/a.out
+--4614-- Reading syms from /usr/lib64/valgrind/memcheck-amd64-linux
+--4614--    object doesn't have a dynamic symbol table
+--4614-- Reading syms from /lib64/ld-2.12.so
+--4614-- Scheduler: using generic scheduler lock implementation.
+--4614-- Reading suppressions file: /usr/lib64/valgrind/default.supp
+==4614== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-4614-by-prabhus-on-ee207lnx04.ecn.purdue.edu
+==4614== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-4614-by-prabhus-on-ee207lnx04.ecn.purdue.edu
+==4614== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-4614-by-prabhus-on-ee207lnx04.ecn.purdue.edu
+==4614== 
+==4614== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==4614== don't want to do, unless you know exactly what you're doing,
+==4614== or are doing some strange experiment):
+==4614==   /usr/lib64/valgrind/../../bin/vgdb --pid=4614 ...command...
+==4614== 
+==4614== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==4614==   /path/to/gdb /tmp/.aNBZal/a.out
+==4614== and then give GDB the following command
+==4614==   target remote | /usr/lib64/valgrind/../../bin/vgdb --pid=4614
+==4614== --pid is optional if only one valgrind process is running
+==4614== 
+--4614-- REDIR: 0x34bfa17d10 (strlen) redirected to 0x38049551 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--4614-- Reading syms from /usr/lib64/valgrind/vgpreload_core-amd64-linux.so
+--4614-- Reading syms from /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so
+--4614-- REDIR: 0x34bfa17b20 (index) redirected to 0x4a07c30 (index)
+--4614-- REDIR: 0x34bfa17ba0 (strcmp) redirected to 0x4a08570 (strcmp)
+--4614-- Reading syms from /lib64/libc-2.12.so
+--4614-- REDIR: 0x34c0284e60 (strcasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--4614-- REDIR: 0x34c0287120 (strncasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--4614-- REDIR: 0x34c0282dd0 (__GI_strrchr) redirected to 0x4a07ab0 (__GI_strrchr)
+--4614-- REDIR: 0x34c02812b0 (strlen) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--4614-- REDIR: 0x34c02812f0 (__GI_strlen) redirected to 0x4a07fb0 (__GI_strlen)
+--4614-- REDIR: 0x34c0280d00 (strcpy) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--4614-- REDIR: 0x34c0280d30 (__GI_strcpy) redirected to 0x4a080a0 (__GI_strcpy)
+--4614-- REDIR: 0x34c0284690 (mempcpy) redirected to 0x4a0a020 (mempcpy)
+--4614-- REDIR: 0x34c0289800 (memcpy) redirected to 0x4a08b60 (memcpy)
+--4614-- REDIR: 0x34c027ba00 (free) redirected to 0x4a063a9 (free)
+--4614-- REDIR: 0x34c027f870 (strcmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--4614-- REDIR: 0x34c027f8b0 (__GI_strcmp) redirected to 0x4a08520 (__GI_strcmp)
+--4614-- REDIR: 0x34c027aba0 (malloc) redirected to 0x4a069ac (malloc)
+--4614-- REDIR: 0x34c027f7c0 (index) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--4614-- REDIR: 0x34c027f7f0 (__GI_strchr) redirected to 0x4a07b70 (__GI_strchr)
+==4614== 
+==4614== HEAP SUMMARY:
+==4614==     in use at exit: 0 bytes in 0 blocks
+==4614==   total heap usage: 65,994 allocs, 65,994 frees, 1,139,770 bytes allocated
+==4614== 
+==4614== All heap blocks were freed -- no leaks are possible
+==4614== 
+==4614== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 6 from 6)
+--4614-- 
+--4614-- used_suppression:      4 U1004-ARM-_dl_relocate_object
+--4614-- used_suppression:      2 glibc-2.5.x-on-SUSE-10.2-(PPC)-2a
+==4614== 
+==4614== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 6 from 6)

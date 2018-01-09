@@ -1,0 +1,48 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include "answer06.h"
+
+int main(int argc,char ** argv)
+{
+ const  char * str = "DCBA";
+ const  char * str2 = "ACDG";
+//  int a;
+  int i = 1;
+  List * lhs =  NULL;
+  List * head = NULL;
+  List * rhs = NULL;
+  List * temp = NULL;
+  lhs = List_createNode(str);
+  temp = lhs;
+//  a = List_length(lhs);
+//  printf("a = %d\n",a);
+  rhs = List_createNode(str2);
+  head = rhs;
+  while(i < 3 )
+  {
+     temp->next  = List_createNode(&str[i]);
+  //   head->next = List_createNode(&str2[i]);
+     temp = temp->next;
+ //    head = head->next;
+     temp->next = NULL;
+//     head->next = NULL;
+     i++;
+  }        
+//  head = List_merge(lhs,rhs,strcmp);
+//  while(head != NULL)
+//  {
+//   printf("%s ",(head->str));
+//   head = head->next;
+//  }
+ 
+ head = List_sort(lhs,strcmp);
+ while(head != NULL)
+  {
+    printf("%c ",*(head->str));
+    head = head -> next;
+  }                
+  return EXIT_SUCCESS;
+}     
+
+

@@ -1,0 +1,72 @@
+==4780== Memcheck, a memory error detector
+==4780== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==4780== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==4780== Command: /tmp/.aNBZal/a.out 3 137-528496ABDEFC
+==4780== Parent PID: 4779
+==4780== 
+--4780-- 
+--4780-- Valgrind options:
+--4780--    --tool=memcheck
+--4780--    --leak-check=full
+--4780--    --verbose
+--4780--    --log-file=/tmp/.aNBZal/tmpf
+--4780-- Contents of /proc/version:
+--4780--   Linux version 2.6.32-642.3.1.el6.x86_64 (mockbuild@x86-029.build.eng.bos.redhat.com) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-17) (GCC) ) #1 SMP Sun Jun 26 18:16:44 EDT 2016
+--4780-- Arch and hwcaps: AMD64, amd64-sse3-cx16-lzcnt-avx2-bmi
+--4780-- Page sizes: currently 4096, max supported 4096
+--4780-- Valgrind library directory: /usr/lib64/valgrind
+--4780-- Reading syms from /tmp/.aNBZal/a.out
+--4780-- Reading syms from /usr/lib64/valgrind/memcheck-amd64-linux
+--4780--    object doesn't have a dynamic symbol table
+--4780-- Reading syms from /lib64/ld-2.12.so
+--4780-- Scheduler: using generic scheduler lock implementation.
+--4780-- Reading suppressions file: /usr/lib64/valgrind/default.supp
+==4780== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-4780-by-prabhus-on-ee207lnx04.ecn.purdue.edu
+==4780== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-4780-by-prabhus-on-ee207lnx04.ecn.purdue.edu
+==4780== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-4780-by-prabhus-on-ee207lnx04.ecn.purdue.edu
+==4780== 
+==4780== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==4780== don't want to do, unless you know exactly what you're doing,
+==4780== or are doing some strange experiment):
+==4780==   /usr/lib64/valgrind/../../bin/vgdb --pid=4780 ...command...
+==4780== 
+==4780== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==4780==   /path/to/gdb /tmp/.aNBZal/a.out
+==4780== and then give GDB the following command
+==4780==   target remote | /usr/lib64/valgrind/../../bin/vgdb --pid=4780
+==4780== --pid is optional if only one valgrind process is running
+==4780== 
+--4780-- REDIR: 0x34bfa17d10 (strlen) redirected to 0x38049551 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--4780-- Reading syms from /usr/lib64/valgrind/vgpreload_core-amd64-linux.so
+--4780-- Reading syms from /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so
+--4780-- REDIR: 0x34bfa17b20 (index) redirected to 0x4a07c30 (index)
+--4780-- REDIR: 0x34bfa17ba0 (strcmp) redirected to 0x4a08570 (strcmp)
+--4780-- Reading syms from /lib64/libc-2.12.so
+--4780-- REDIR: 0x34c0284e60 (strcasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--4780-- REDIR: 0x34c0287120 (strncasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--4780-- REDIR: 0x34c0282dd0 (__GI_strrchr) redirected to 0x4a07ab0 (__GI_strrchr)
+--4780-- REDIR: 0x34c02812b0 (strlen) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--4780-- REDIR: 0x34c02812f0 (__GI_strlen) redirected to 0x4a07fb0 (__GI_strlen)
+--4780-- REDIR: 0x34c0280d00 (strcpy) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--4780-- REDIR: 0x34c0280d30 (__GI_strcpy) redirected to 0x4a080a0 (__GI_strcpy)
+--4780-- REDIR: 0x34c0284690 (mempcpy) redirected to 0x4a0a020 (mempcpy)
+--4780-- REDIR: 0x34c0289800 (memcpy) redirected to 0x4a08b60 (memcpy)
+--4780-- REDIR: 0x34c027ba00 (free) redirected to 0x4a063a9 (free)
+--4780-- REDIR: 0x34c027f870 (strcmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--4780-- REDIR: 0x34c027f8b0 (__GI_strcmp) redirected to 0x4a08520 (__GI_strcmp)
+--4780-- REDIR: 0x34c027aba0 (malloc) redirected to 0x4a069ac (malloc)
+--4780-- REDIR: 0x34c027f7c0 (index) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--4780-- REDIR: 0x34c027f7f0 (__GI_strchr) redirected to 0x4a07b70 (__GI_strchr)
+==4780== 
+==4780== HEAP SUMMARY:
+==4780==     in use at exit: 0 bytes in 0 blocks
+==4780==   total heap usage: 41,887 allocs, 41,887 frees, 725,906 bytes allocated
+==4780== 
+==4780== All heap blocks were freed -- no leaks are possible
+==4780== 
+==4780== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 6 from 6)
+--4780-- 
+--4780-- used_suppression:      4 U1004-ARM-_dl_relocate_object
+--4780-- used_suppression:      2 glibc-2.5.x-on-SUSE-10.2-(PPC)-2a
+==4780== 
+==4780== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 6 from 6)

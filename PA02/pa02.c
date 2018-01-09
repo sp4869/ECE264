@@ -1,0 +1,109 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "answer02.h"
+
+#define BUFFER_LEN 1024
+
+int main(int argc, char * * argv)
+{
+    printf("Welcome to PA02.\n"
+	   "\n"
+	   "You are encouraged to edit this file in order to test\n"
+	   "the behavior of the functions you write in answer02.c\n"
+	   "\n"
+	   "This file will not be marked, and should not be\n"
+	   "submitted.\n"
+	   "\n"
+	   "Don't forget to post questions on Blackboard, and ask\n"
+	   "the TAs and your classmates for help.\n"
+	   "\n");
+	   
+    const char * s1 = "Hello World!";
+    const char * s2 = "";
+    const char * s3 = "foo";
+    const char * s4 = "Zippy";
+    const char * s5 = " Max";
+    const char * s6 = "Zoolander";
+    const char * s7 = "+-1";
+    const char * s8 = "--1";
+    const char * s9 = "1abc";
+    const char * s10 = "+1a";
+    const char * s11 = "-1v";
+    const char * s12 = "-a1";
+    
+    printf("Answer = %d\n",my_atoi(s7));
+    printf("check = %d\n",(my_atoi(s7) == atoi(s7)));
+    printf("Answer = %d\n",my_atoi(s8));
+    printf("check = %d\n",(my_atoi(s8) == atoi(s8)));
+    printf("Answer = %d\n",my_atoi(s9));
+    printf("check = %d\n",(my_atoi(s9) == atoi(s9)));
+    printf("Answer = %d\n",my_atoi(s10));
+    printf("check = %d\n",(my_atoi(s10) == atoi(s10)));
+    printf("Answer = %d\n",my_atoi(s11));
+    printf("check = %d\n",(my_atoi(s11) == atoi(s11)));
+    printf("Answer = %d\n",my_atoi(s12));
+    printf("check = %d\n",(my_atoi(s12) == atoi(s12)));
+ 
+	
+	// -- my_strlen, should be: 12, 0, and 3
+    printf("my_strlen(\"%s\") = %d\n", s1, (int) my_strlen(s1));
+    printf("my_strlen(\"%s\") = %d\n", s2, (int) my_strlen(s2));
+    printf("my_strlen(\"%s\") = %d\n", s3, (int) my_strlen(s3));
+    	
+	// -- my_countchar, should be: 3, 0, and 2
+    printf("my_countchar(\"%s\", 'l') = %d\n", s1, (int) my_countchar(s1, 'l'));
+    printf("my_countchar(\"%s\", 'o') = %d\n", s2, (int) my_countchar(s2, 'o'));
+    printf("my_countchar(\"%s\", 'o') = %d\n", s3, (int) my_countchar(s3, 'o'));
+	
+	// -- my_strchr, should be: "llo World!", "(null)", and ""
+    printf("my_strchr(\"%s\", 'l') = %s\n", s1, my_strchr(s1, 'l'));
+    printf("my_strchr(\"%s\", 'o') = %s\n", s2, my_strchr(s2, 'o'));
+    printf("my_strchr(\"%s\", '\\0') = %s\n", s3, my_strchr(s3, '\0'));
+
+	// -- my_strrchr, should be: "lo World!", "(null)", "",and "orld!"
+    printf("my_strrchr(\"%s\", 'l') = %s\n", s1, my_strrchr(s1, 'l'));
+    printf("my_strrchr(\"%s\", 'o') = %s\n", s2, my_strrchr(s2, 'o'));
+    printf("my_strrchr(\"%s\", '\\0') = %s\n", s3, my_strrchr(s3, '\0'));
+    printf("my_strrchr(\"%s\", 'o') = %s\n", s1, my_strrchr(s1, 'o'));
+
+		
+	// -- my_strstr, should be: "World!", "Hello World!", "(null)"
+    printf("my_strstr(\"%s\", \"World\") = %s\n", s1, my_strstr(s1, "World"));
+    printf("my_strstr(\"%s\", \"\") = %s\n", s1, my_strstr(s1, ""));
+    printf("my_strstr(\"%s\", \"hello\") = %s\n", s1, my_strstr(s1, "hello"));
+	
+	// -- my_strcpy. For this function you need a buffer where you
+    // copy the string to. 
+    char buffer[BUFFER_LEN];
+    my_strcpy(buffer, s1);
+    printf("my_strcpy(buffer, \"%s\"), buffer = \"%s\"\n", s1, buffer);
+    my_strcpy(buffer, s2);
+    printf("my_strcpy(buffer, \"%s\"), buffer = \"%s\"\n", s2, buffer);
+    my_strcpy(buffer, s3);
+    printf("my_strcpy(buffer, \"%s\"), buffer = \"%s\"\n", s3, buffer);
+	
+	// -- my_strcat. You will have to do this yourself.
+    // Look at my_strcpy for an example, and go from there.
+	my_strcpy(buffer, s1);
+        printf("my_strcat(buffer,\"%s\"), append = \"%s\"\n", s4, my_strcat(buffer,s4));
+        my_strcpy(buffer, s1);
+        printf("my_strcat(buffer, \"%s\"), append = \"%s\"\n", s5, my_strcat(buffer,s5));
+        my_strcpy(buffer, s3);
+	printf("my_strcat(buffer, \"%s\"), append = \"%s\"\n", s6, my_strcat(buffer,s6));
+
+
+    // -- my_isspace. You will have to do this for yourself.
+       
+       printf("b = %d\n",my_isspace('a'));
+       printf("c = %d\n",my_isspace('b'));
+       printf("d = %d\n",my_isspace('c'));
+       printf("e = %d\n",my_isspace('d'));
+       printf("f = %d\n",my_isspace('\n'));
+       printf("g = %d\n",my_isspace('\f'));
+       printf("h = %d\n",my_isspace('\v'));
+
+    // -- my_atoi. You will have to do this for yourself.
+	
+	return EXIT_SUCCESS;
+}

@@ -1,0 +1,204 @@
+==32514== Memcheck, a memory error detector
+==32514== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==32514== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==32514== Command: ./pa03
+==32514== Parent PID: 31199
+==32514== 
+--32514-- 
+--32514-- Valgrind options:
+--32514--    --tool=memcheck
+--32514--    --leak-check=full
+--32514--    --verbose
+--32514--    --log-file=memcheck.log
+--32514-- Contents of /proc/version:
+--32514--   Linux version 2.6.32-642.1.1.el6.x86_64 (mockbuild@x86-027.build.eng.bos.redhat.com) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-17) (GCC) ) #1 SMP Fri May 6 14:54:05 EDT 2016
+--32514-- Arch and hwcaps: AMD64, amd64-sse3-cx16-avx
+--32514-- Page sizes: currently 4096, max supported 4096
+--32514-- Valgrind library directory: /usr/lib64/valgrind
+--32514-- Reading syms from /home/shay/a/prabhus/ECE264/PA03/pa03
+--32514-- Reading syms from /usr/lib64/valgrind/memcheck-amd64-linux
+--32514--    object doesn't have a dynamic symbol table
+--32514-- Reading syms from /lib64/ld-2.12.so
+--32514-- Scheduler: using generic scheduler lock implementation.
+--32514-- Reading suppressions file: /usr/lib64/valgrind/default.supp
+==32514== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-32514-by-prabhus-on-ee207lnx16.ecn.purdue.edu
+==32514== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-32514-by-prabhus-on-ee207lnx16.ecn.purdue.edu
+==32514== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-32514-by-prabhus-on-ee207lnx16.ecn.purdue.edu
+==32514== 
+==32514== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==32514== don't want to do, unless you know exactly what you're doing,
+==32514== or are doing some strange experiment):
+==32514==   /usr/lib64/valgrind/../../bin/vgdb --pid=32514 ...command...
+==32514== 
+==32514== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==32514==   /path/to/gdb ./pa03
+==32514== and then give GDB the following command
+==32514==   target remote | /usr/lib64/valgrind/../../bin/vgdb --pid=32514
+==32514== --pid is optional if only one valgrind process is running
+==32514== 
+--32514-- REDIR: 0x3cc6017d10 (strlen) redirected to 0x38049551 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--32514-- Reading syms from /usr/lib64/valgrind/vgpreload_core-amd64-linux.so
+--32514-- Reading syms from /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so
+--32514-- REDIR: 0x3cc6017b20 (index) redirected to 0x4a07c30 (index)
+--32514-- REDIR: 0x3cc6017ba0 (strcmp) redirected to 0x4a08570 (strcmp)
+--32514-- Reading syms from /lib64/libc-2.12.so
+--32514-- REDIR: 0x3cc6484e60 (strcasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--32514-- REDIR: 0x3cc6487120 (strncasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--32514-- REDIR: 0x3cc6482dd0 (__GI_strrchr) redirected to 0x4a07ab0 (__GI_strrchr)
+--32514-- REDIR: 0x3cc64812b0 (strlen) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--32514-- REDIR: 0x3cc6533820 (__strlen_sse42) redirected to 0x4a07f90 (strlen)
+--32514-- REDIR: 0x3cc647aba0 (malloc) redirected to 0x4a069ac (malloc)
+==32514== Invalid read of size 1
+==32514==    at 0x4A07FA4: strlen (mc_replace_strmem.c:403)
+==32514==    by 0x4009E7: strcat_ex (answer03.c:14)
+==32514==    by 0x4007F0: main (pa03.c:25)
+==32514==  Address 0x4c3e045 is 0 bytes after a block of size 5 alloc'd
+==32514==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==32514==    by 0x400786: main (pa03.c:16)
+==32514== 
+==32514== Invalid read of size 1
+==32514==    at 0x4A07FA4: strlen (mc_replace_strmem.c:403)
+==32514==    by 0x400A1E: strcat_ex (answer03.c:16)
+==32514==    by 0x4007F0: main (pa03.c:25)
+==32514==  Address 0x4c3e045 is 0 bytes after a block of size 5 alloc'd
+==32514==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==32514==    by 0x400786: main (pa03.c:16)
+==32514== 
+==32514== Invalid read of size 1
+==32514==    at 0x4A07FA4: strlen (mc_replace_strmem.c:403)
+==32514==    by 0x400A53: strcat_ex (answer03.c:17)
+==32514==    by 0x4007F0: main (pa03.c:25)
+==32514==  Address 0x4c3e045 is 0 bytes after a block of size 5 alloc'd
+==32514==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==32514==    by 0x400786: main (pa03.c:16)
+==32514== 
+--32514-- REDIR: 0x3cc6480d00 (strcpy) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--32514-- REDIR: 0x3cc65342c0 (???) redirected to 0x4a07fd0 (strcpy)
+==32514== Invalid read of size 1
+==32514==    at 0x4A07FF2: strcpy (mc_replace_strmem.c:442)
+==32514==    by 0x400A7D: strcat_ex (answer03.c:18)
+==32514==    by 0x4007F0: main (pa03.c:25)
+==32514==  Address 0x4c3e045 is 0 bytes after a block of size 5 alloc'd
+==32514==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==32514==    by 0x400786: main (pa03.c:16)
+==32514== 
+--32514-- REDIR: 0x3cc647ba00 (free) redirected to 0x4a063a9 (free)
+--32514-- REDIR: 0x3cc647f600 (strcat) redirected to 0x4a07c60 (strcat)
+--32514-- REDIR: 0x3cc648ac80 (strchrnul) redirected to 0x4a09fb0 (strchrnul)
+--32514-- REDIR: 0x3cc647f7c0 (index) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--32514-- REDIR: 0x3cc65284a0 (__strchr_sse42) redirected to 0x4a07b40 (index)
+==32514== Conditional jump or move depends on uninitialised value(s)
+==32514==    at 0x4A07F99: strlen (mc_replace_strmem.c:403)
+==32514==    by 0x4009E7: strcat_ex (answer03.c:14)
+==32514==    by 0x400EA8: implode (answer03.c:122)
+==32514==    by 0x400854: main (pa03.c:29)
+==32514== 
+==32514== Conditional jump or move depends on uninitialised value(s)
+==32514==    at 0x4A07F99: strlen (mc_replace_strmem.c:403)
+==32514==    by 0x400A1E: strcat_ex (answer03.c:16)
+==32514==    by 0x400EA8: implode (answer03.c:122)
+==32514==    by 0x400854: main (pa03.c:29)
+==32514== 
+==32514== Conditional jump or move depends on uninitialised value(s)
+==32514==    at 0x4A07F99: strlen (mc_replace_strmem.c:403)
+==32514==    by 0x400A53: strcat_ex (answer03.c:17)
+==32514==    by 0x400EA8: implode (answer03.c:122)
+==32514==    by 0x400854: main (pa03.c:29)
+==32514== 
+==32514== Conditional jump or move depends on uninitialised value(s)
+==32514==    at 0x4A07FDF: strcpy (mc_replace_strmem.c:442)
+==32514==    by 0x400A7D: strcat_ex (answer03.c:18)
+==32514==    by 0x400EA8: implode (answer03.c:122)
+==32514==    by 0x400854: main (pa03.c:29)
+==32514== 
+--32514-- REDIR: 0x3cc64812f0 (__GI_strlen) redirected to 0x4a07fb0 (__GI_strlen)
+--32514-- REDIR: 0x3cc6489800 (memcpy) redirected to 0x4a08b60 (memcpy)
+--32514-- REDIR: 0x3cc6484690 (mempcpy) redirected to 0x4a0a020 (mempcpy)
+--32514-- REDIR: 0x3cc647f870 (strcmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--32514-- REDIR: 0x3cc6528550 (__strcmp_sse42) redirected to 0x4a084d0 (strcmp)
+==32514== 
+==32514== HEAP SUMMARY:
+==32514==     in use at exit: 0 bytes in 0 blocks
+==32514==   total heap usage: 16 allocs, 16 frees, 194 bytes allocated
+==32514== 
+==32514== All heap blocks were freed -- no leaks are possible
+==32514== 
+==32514== Use --track-origins=yes to see where uninitialised values come from
+==32514== ERROR SUMMARY: 8 errors from 8 contexts (suppressed: 6 from 6)
+==32514== 
+==32514== 1 errors in context 1 of 8:
+==32514== Conditional jump or move depends on uninitialised value(s)
+==32514==    at 0x4A07FDF: strcpy (mc_replace_strmem.c:442)
+==32514==    by 0x400A7D: strcat_ex (answer03.c:18)
+==32514==    by 0x400EA8: implode (answer03.c:122)
+==32514==    by 0x400854: main (pa03.c:29)
+==32514== 
+==32514== 
+==32514== 1 errors in context 2 of 8:
+==32514== Conditional jump or move depends on uninitialised value(s)
+==32514==    at 0x4A07F99: strlen (mc_replace_strmem.c:403)
+==32514==    by 0x400A53: strcat_ex (answer03.c:17)
+==32514==    by 0x400EA8: implode (answer03.c:122)
+==32514==    by 0x400854: main (pa03.c:29)
+==32514== 
+==32514== 
+==32514== 1 errors in context 3 of 8:
+==32514== Conditional jump or move depends on uninitialised value(s)
+==32514==    at 0x4A07F99: strlen (mc_replace_strmem.c:403)
+==32514==    by 0x400A1E: strcat_ex (answer03.c:16)
+==32514==    by 0x400EA8: implode (answer03.c:122)
+==32514==    by 0x400854: main (pa03.c:29)
+==32514== 
+==32514== 
+==32514== 1 errors in context 4 of 8:
+==32514== Conditional jump or move depends on uninitialised value(s)
+==32514==    at 0x4A07F99: strlen (mc_replace_strmem.c:403)
+==32514==    by 0x4009E7: strcat_ex (answer03.c:14)
+==32514==    by 0x400EA8: implode (answer03.c:122)
+==32514==    by 0x400854: main (pa03.c:29)
+==32514== 
+==32514== 
+==32514== 1 errors in context 5 of 8:
+==32514== Invalid read of size 1
+==32514==    at 0x4A07FF2: strcpy (mc_replace_strmem.c:442)
+==32514==    by 0x400A7D: strcat_ex (answer03.c:18)
+==32514==    by 0x4007F0: main (pa03.c:25)
+==32514==  Address 0x4c3e045 is 0 bytes after a block of size 5 alloc'd
+==32514==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==32514==    by 0x400786: main (pa03.c:16)
+==32514== 
+==32514== 
+==32514== 1 errors in context 6 of 8:
+==32514== Invalid read of size 1
+==32514==    at 0x4A07FA4: strlen (mc_replace_strmem.c:403)
+==32514==    by 0x400A53: strcat_ex (answer03.c:17)
+==32514==    by 0x4007F0: main (pa03.c:25)
+==32514==  Address 0x4c3e045 is 0 bytes after a block of size 5 alloc'd
+==32514==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==32514==    by 0x400786: main (pa03.c:16)
+==32514== 
+==32514== 
+==32514== 1 errors in context 7 of 8:
+==32514== Invalid read of size 1
+==32514==    at 0x4A07FA4: strlen (mc_replace_strmem.c:403)
+==32514==    by 0x400A1E: strcat_ex (answer03.c:16)
+==32514==    by 0x4007F0: main (pa03.c:25)
+==32514==  Address 0x4c3e045 is 0 bytes after a block of size 5 alloc'd
+==32514==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==32514==    by 0x400786: main (pa03.c:16)
+==32514== 
+==32514== 
+==32514== 1 errors in context 8 of 8:
+==32514== Invalid read of size 1
+==32514==    at 0x4A07FA4: strlen (mc_replace_strmem.c:403)
+==32514==    by 0x4009E7: strcat_ex (answer03.c:14)
+==32514==    by 0x4007F0: main (pa03.c:25)
+==32514==  Address 0x4c3e045 is 0 bytes after a block of size 5 alloc'd
+==32514==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==32514==    by 0x400786: main (pa03.c:16)
+==32514== 
+--32514-- 
+--32514-- used_suppression:      4 U1004-ARM-_dl_relocate_object
+--32514-- used_suppression:      2 glibc-2.5.x-on-SUSE-10.2-(PPC)-2a
+==32514== 
+==32514== ERROR SUMMARY: 8 errors from 8 contexts (suppressed: 6 from 6)

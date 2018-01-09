@@ -1,0 +1,164 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include "answer07.h"
+
+List * List_createNode(const char * str)
+{ 
+   List * head = NULL;// points to null
+   head = malloc(sizeof(List));//malloc node
+     if(str == NULL)
+     {
+       head -> str = NULL;
+     }
+     else
+     {      
+        head -> str = strdup(str);//malloc string in node
+     }     
+     head -> next = NULL;    
+     return head;//return pointer
+}
+  
+
+void List_destroy(List * list)
+{
+  List * head = NULL;
+  head = list;
+  if(list == NULL)
+  {
+    return;
+  }
+  while(list != NULL)
+  { 
+     head = list->next;
+     free(list -> str);
+     free(list);
+     list = head;//keep moving from node to node.
+  }
+} 
+
+int List_length(List * list)
+
+{
+   int count = 0;
+   while (list != NULL)
+   {
+      count ++;//update count
+      list = list -> next;//point to next node
+   }
+   return count;
+}
+
+List * List_merge(List *  lhs,List * rhs,int(*compar)(const char *,const char*))
+{
+    List * new = NULL;//point to null. This will always point to the either rhs or lhs to begin with and will ultimately point to the new linked list.
+    List * current = NULL;//point to null. This should point to the newly created linked list and will move through that linked list.
+    if (lhs == NULL)
+     {
+       return rhs;//return rhs if lhs is null and vice versa
+     }
+    if(rhs == NULL)
+     {
+       return lhs;
+     }
+    if (compar(lhs->str,rhs->str) > 0)//this means that rhs returns a smaller ascii value.
+     {
+        new = rhs;//make new point to the node rhs points to.
+        current = rhs;//make current aslo point to node rhs points to.
+        rhs = rhs ->next;//rhs will now point to next node in the list
+        current->next = NULL;//currrent is the pointer to the combined linked list,current->next should point to null.
+     }
+    else
+     {
+        new = lhs;//same as above except in this case lhs is smaller.
+        current = lhs;
+        lhs = lhs -> next;
+        current->next = NULL;
+     }                      
+    while(lhs!= NULL && rhs != NULL)      
+    {
+        if (compar(lhs->str,rhs->str) < 0)//assuming rhs was smaller,it will now point to the next element,compar will be used between rhs->str and lhs->str.
+        {
+            current -> next = lhs;//rhs was the smaller node,so current->next should point to lhs.
+            current = lhs;//points to lhs
+            lhs = lhs ->next;//update the lhs
+            current -> next = NULL;
+        }
+        else
+        {
+           current -> next = rhs;
+           current = rhs;
+           rhs = rhs -> next;
+           current->next = NULL;
+        }     
+    }
+    if (rhs == NULL)
+    {
+        current->next = lhs;
+    }
+    else
+    {
+       current ->next = rhs;
+    }
+    return new;
+}  
+
+ 
+void print_list(List *l){
+   while(l != NULL){
+      printf("%s ", l -> str);
+      l = l -> next;
+   }
+printf("\n");
+}
+
+
+List * List_sort(List * list,int(*compar)(const char *,const char *))
+
+{
+  int a;// length of linked list
+  int d;//split linked list
+  int c;
+  if (list == NULL)
+  {
+    return list;
+  }
+  a = List_length(list);
+//  printf(" (a = %d) ",a);
+  if ( a == 0 || a == 1)
+   {
+     return list;
+   }
+  d = a / 2;//length of list / 2
+  c = a - d;//split into two equal linked lists.   
+  List * lhs = NULL;
+  List * rhs = NULL;
+  List * temp =  NULL;
+  lhs = list;
+  rhs = list;
+  temp = list;
+  int i = 0;
+  while(i < d)
+   { 
+     temp = rhs;
+     rhs = rhs-> next;
+     i++;
+   }
+/*  while(j < d -1)
+  {
+    if(list ->next != NULL)
+    {
+      temp = lhs->next;
+    }
+   j++;
+  }*/
+  temp->next = NULL;
+  List * newlhs = NULL;//recursive pointer
+  List * newrhs = NULL;//recursive pointer
+  List * mergelist = NULL;
+  newlhs = List_sort(lhs, compar);//returns a pointer to newlist
+  newrhs = List_sort(rhs, compar);//returns a pointer to newlist  
+  mergelist = List_merge(newlhs,newrhs,compar); //merge the two lists
+  return mergelist;
+}            
+    

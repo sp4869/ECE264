@@ -1,0 +1,151 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include "answer05.h"
+
+#define FALSE 0
+#define TRUE 1
+
+Image * Image_load(const char * filename)
+{
+	FILE * fp = NULL;
+	size_t read;
+	ImageHeader header;
+	Image * tmp_im = NULL,* im = NULL;
+	int err = FALSE;
+
+	if(!err)
+	{ // Open filename
+		fp = fopen(filename, "rb");
+		if(!fp)
+		{
+			printf( "Failed to open file '%s'\n", filename);
+			err = TRUE;
+		}
+	}
+
+	if(!err)
+	{ // Read the header
+		read = fread(&header, sizeof(ImageHeader), 1, fp);
+		if(read != 1)
+		{
+			printf( "Failed to read header from '%s'\n", filename);
+			err = TRUE;
+		}
+	}
+
+	if(!err)
+	{
+		if(header.magic_number != ECE264_IMAGE_MAGIC_NUMBER)
+		{
+			fprintf(stderr,"The magic number in the header is incorrect\n");
+			err = TRUE;
+		}
+	}
+
+	if(!err)
+	{
+		if(header.width <= 0)
+		{
+			fprintf(stderr,"Incorrect width and height\n");
+			err = TRUE;
+		}
+	}
+
+	if(!err)
+	{
+		if(header.height <= 0)
+		{
+			fprintf(stderr,"Incorrect heigth\n");
+			err = TRUE;
+		}
+	}
+
+	if(!err)
+	{
+		if(header.comment_len == 0)
+		{
+			fprintf(stderr,"Incorrect comment length\n");
+			err = TRUE;
+		}
+	}
+
+	int a;
+	a = header.width * header.height;
+	if(!err)
+	{ // Allocate Image struct
+		tmp_im = malloc(sizeof(Image));
+		if(tmp_im == NULL) 
+		{
+			printf( "Failed to allocate im structure\n");
+			err = TRUE;
+		} 
+
+		tmp_im->comment = malloc(sizeof(char) * header.comment_len);  
+		tmp_im -> data = malloc(sizeof(uint8_t) * a);
+	}
+
+
+	if(!err)
+	{
+		read = fread(tmp_im->comment,sizeof(char),header.comment_len,fp);
+		if(read != header.comment_len)
+		{
+			printf( "Failed to read header from '%s'\n", filename);
+			err = TRUE;
+		}
+	}
+
+	if(!err)
+	{
+		if(tmp_im->comment[header.comment_len- 1] != '\0') //becasue comment_len includes null byte in its length
+		{
+			err = TRUE;
+		}
+	}
+
+	if(!err)
+	{
+		read= fread(tmp_im->data,sizeof(char),a,fp);
+		if(read != a)
+		{
+			err = TRUE;
+		}
+	}
+
+	char test[1];
+	if(!err)
+	{
+		read = fread(test,sizeof(char),1,fp);
+		if(read != 0)
+		{
+			err = TRUE;
+		}
+	}
+
+	if(!err)
+	{ // Init the Image struct
+		tmp_im->width = header.width;
+		tmp_im->height = header.height;
+	}
+
+	if(!err)
+	{ // We're winners... 
+		im = tmp_im;  // bmp will be returned
+		tmp_im = NULL; // and not cleaned up
+	}
+
+	if(tmp_im != NULL)
+	{
+		free(tmp_im->comment); // Remember, you can always free(NULL)
+		free(tmp_im->data);
+		free(tmp_im);
+	}
+	if(fp)
+	{
+		fclose(fp);
+	}   	    	    	                	            
+	return im;
+}
+         	    	    	                	                
